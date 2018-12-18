@@ -14,7 +14,7 @@ This is a test web application (back end: Java 8, Tomcat 9, MySQL 5.7) that impl
 
 - Hibernate framework for execution of queries (see [hibernate.cfg.xml](https://github.com/jnkefala/javatest/blob/master/javaTest/src/hibernate.cfg.xml) and [mapping classes](https://github.com/jnkefala/javatest/tree/master/javaTest/src/db/mapping))
 
-- Connection pooling set in Tomcat server.xml file (MySQL connector jar is placed in Tomcat lib folder):
+- Connection pooling set in [context.xml](https://github.com/jnkefala/javatest/blob/master/javaTest/WebContent/META-INF/context.xml) and Tomcat server.xml file (MySQL connector jar is placed in Tomcat lib folder):
 
   `<Resource auth="Container" description="Test Database" driverClassName="com.mysql.jdbc.Driver" maxActive="14" maxIdle="7" minEvictableIdleTimeMillis="14400000" name="jdbc/user_db" numTestsPerEviction="-1" password="dbpass" timeBetweenEvictionRunsMillis="4800000" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/user_db?autoReconnect=true&amp;characterEncoding=utf8" username="dbusr"/>`
 
