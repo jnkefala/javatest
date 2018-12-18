@@ -13,5 +13,6 @@
 		<property name="format_sql">false</property>
 		<property name="use_sql_comments">false</property>
 		<mapping class="db.mapping.User" />
+		<mapping class="db.mapping.UserRoles" />
 	</session-factory>
 </hibernate-configuration>

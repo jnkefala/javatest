@@ -43,23 +43,10 @@ if(data.getUserData().getPhoto()!=null){
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   <!-- InstanceBeginEditable name="head" -->
-    <script src="../plugins/jQuery/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="../plugins/jQuery/additional-methods.min.js" type="text/javascript"></script>
-    <script src="../js/profile.js" type="text/javascript"></script>
-    <script src="../js/extra-validate-methods.js" type="text/javascript"></script>
-    <style type="text/css">
-	/*	.content-wrapper {margin-left:0px;}
-		.main-header>.navbar {margin-left: 0;}*/
-		.navbar-nav>.user-menu>.dropdown-menu {width: auto;}
-		.small-box{padding:40px;}
-		.space{margin-top: 5px;}
-		.btn-warning {background-color: #ce840f;}
-		.alert-success{padding:40px;}
-    </style>
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+  <script src="../plugins/jQuery/jquery.validate.min.js" type="text/javascript"></script>
+  <script src="../plugins/jQuery/additional-methods.min.js" type="text/javascript"></script>
+  <script src="../js/pass.js" type="text/javascript"></script>
+  <script src="../js/extra-validate-methods.js" type="text/javascript"></script>
   <!-- InstanceEndEditable -->
   </head>
   <body class="skin-blue">
@@ -94,8 +81,8 @@ if(data.getUserData().getPhoto()!=null){
           <ul class="sidebar-menu">
             <li class="header"></li>
             <!-- InstanceBeginEditable name="menu" -->
-            <li class="active"><a href="index.jsp"><span>Profile</span></a></li>
-            <li><a href="password.jsp"><span>Change password</span></a></li>
+            <li><a href="index.jsp"><span>Profile</span></a></li>
+            <li class="active"><a href="password.jsp"><span>Change password</span></a></li>
             <li><a href="photo.jsp"><span>Photo</span></a></li>
             <!-- InstanceEndEditable -->
           </ul>
@@ -105,92 +92,49 @@ if(data.getUserData().getPhoto()!=null){
         <section class="content-header">
           <h1>
             Dashboard
-            <small> &rsaquo; <!-- InstanceBeginEditable name="path" -->User data<!-- InstanceEndEditable --></small>
+            <small> &rsaquo; <!-- InstanceBeginEditable name="path" -->Change password<!-- InstanceEndEditable --></small>
           </h1>
         </section>
         <section class="content">
         <!-- InstanceBeginEditable name="mainContent" -->
-    
-        
         <div class="col-md-6 col-md-offset-3">
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>User profile</h3><br/>
-                  <div id="formID" style="display:none;">
+                  <h3>User password</h3><br/>
+                  <div id="formID">
                   <form id="form" role="form" method="post" action="">
                   <div class="row form-group">
-                  	<div class="col-md-2 space">
-                  		Name*:
-                  	</div>
-	                <div class="col-md-10">
-	                	<input class="form-control" name="firstName" type="text" value="<%=data.getUserData().getFirstName() %>">
-	                	<label id="" class="" for="firstName"></label>
-	                </div>
+                  		Password*:<br/>
+	                	<input class="form-control" name="pass" type="password" value="<% %>">
+	                	<label id="" class="" for="pass"></label>
                   </div>
                   <div class="row form-group space">
-                      <div class="col-md-2">
-                        Surname*:
-                      </div>
-                      <div class="col-md-10">
-                        <input class="form-control" name="lastName" type="text" value="<%=data.getUserData().getLastName() %>">
-                        <label id="" class="" for="lastName"></label>
-                      </div>
+                      New password*:<br/>
+                        <input class="form-control" id="newPass" name="newPass" type="password" value="<% %>">
+                        <label id="" class="" for="newPass"></label>
                   </div>
                   <div class="row form-group space">
-                      <div class="col-md-2">
-                        Email:
-                      </div>
-                      <div class="col-md-10">
-                        <input class="form-control" readonly name="email" type="text" value="<%=data.getUserData().getUser() %>">
-                        <label id="" class="" for="email"></label>
-                      </div>
+                      Reenter new password*:<br/>
+                        <input class="form-control" name="reenteredNewPass" type="password" value="<% %>">
+                        <label id="" class="" for="reenteredNewPass"></label>
                   </div>
-                  <div class="row form-group space">
-                      <div class="col-md-2">
-                        Phone:
-                      </div>
-                      <div class="col-md-10">
-                        <input class="form-control" name="phone" type="text" placeholder="xxxxxxxxxx" value="<%=data.getUserData().getPhone()!=null?data.getUserData().getPhone():"" %>">
-                        <label id="" class="" for="phone"></label>
-                      </div>
-                  </div>
-                  <div class="row form-group space">
-                      <div class="col-md-2">
-                        Company:
-                      </div>
-                      <div class="col-md-10">
-                        <input class="form-control" name="company" type="text" value="<%=data.getUserData().getCompany()!=null?data.getUserData().getCompany():"" %>">
-                        <label id="" class="" for="company"></label>
-                      </div>
-                  </div>
+                  
                   <div class="row space">
-                  <div class="col-md-10 col-md-offset-2">
+                  <div class="col-md-9 col-md-offset-3">
                   <button class="btn btn-block btn-warning btn-md">Submit</button>
                   </div>
                   </div>
                   </form>
-                  <div id="form-alert" class="alert-warning" style="text-align:center;display:none;"></div>
+                  <div id="form-alert" class="alert-warning" style="text-align:center;"></div>
                 </div>
-                
-                <div id="dataID">
-	                <div class="row">
-	                	<p>Name: <%=data.getUserData().getFirstName() %></p>
-	                	<p>Surname: <%=data.getUserData().getLastName() %></p>
-	                	<p>Email: <%=data.getUserData().getUser() %></p>
-	                  	<p>Phone: <%=data.getUserData().getPhone()!=null?data.getUserData().getPhone():"" %></p>
-	                  	<p>Company: <%=data.getUserData().getCompany()!=null?data.getUserData().getCompany():"" %></p>
-	                </div>
-                </div>
+               
                 </div>
                 <div class="icon">
                   <i class="ion ion-person"></i>
                 </div>
-                <a href="#" id="edit" class="small-box-footer">
-                  Edit personal data <i class="fa fa-arrow-circle-right"></i>
-                </a>
               </div>
             </div>
-  <!-- InstanceEndEditable -->
+        <!-- InstanceEndEditable -->
         </section>
       </div>
       <footer class="main-footer">
